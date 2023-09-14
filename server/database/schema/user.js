@@ -4,14 +4,14 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    name: {
-      type: String,
-      require: true,
-    },
-    email: {
+    username: {
       type: String,
       required: true,
-      unique: true,
+    },
+    email: {
+      type: "string",
+      pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      description: "Email address of the user",
     },
     password: {
       type: String,
