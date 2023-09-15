@@ -18,7 +18,10 @@ const bookSchema = new Schema(
       required: true,
     },
     postedBy: {
-      ref: "User",
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "user",
+      unique: true,
     },
   },
   {

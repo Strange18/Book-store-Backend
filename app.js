@@ -13,8 +13,12 @@ const connectDB = require("./server/database/config/db");
 connectDB();
 
 // router configurations
-const main_router = require("./server/routes/main_route");
+const main_router = require("./server/routes/mainRoutes");
+const userRoutes = require("./server/routes/userRoutes");
+
+
 app.use("/", main_router);
+app.use("/", userRoutes);
 
 // running the server
 app.listen(PORT, () => {
