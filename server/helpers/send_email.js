@@ -8,20 +8,20 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: emailUser,
-    pass: paemailPasswordssword,
+    pass: emailPassword,
   },
 });
 
-async function main() {
+async function mailSender(recepients, subject, message) {
   const info = await transporter.sendMail({
     from: emailUser,
-    to: "",
-    subject: "Hello ✔",
-    text: "Hello world?",
-    html: "<b>Hello world?</b>",
+    to: recepients,
+    subject: subject,
+    text: message,
+    // html: "<b>Hello world?</b>",
   });
 
-  console.log("Message sent: %s", info.messageId);
+  //   console.log("Message sent: %s", info.messageId);
 }
 
-main().catch(console.error);
+module.exports = mailSender;
